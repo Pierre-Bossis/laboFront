@@ -9,6 +9,7 @@ export class PimentsService {
   listePiments:Piment[] = []
   constructor()
   {
+    //initialise la liste de base, si elle existe deja en localstorage, on ne fait rien
     this.listePiments.push(
       { id: 1, nom: "Poivron", scoville: "0 - 100", categorie: "light",description: "Le poivron est un piment doux et coloré souvent utilisé dans divers plats pour ajouter de la saveur sans piquant." },
       { id: 2, nom: "Anaheim", scoville: "500 - 1000", categorie: "light",description: "L'Anaheim est un piment légèrement piquant, utilisé pour sa saveur et son piquant modéré dans diverses cuisines." },
@@ -24,15 +25,19 @@ export class PimentsService {
       this.pushToLocalStorage()
   }
 
+  //ajouter un pimennt a la liste et la push sur le localstorage
   addToListePiments(piment:Piment){
     this.listePiments.push(piment)
     this.pushToLocalStorage()
   }
 
-  pushToLocalStorage(){
+  //push la liste su le localstorage
+  private pushToLocalStorage(){
     const data = JSON.stringify(this.listePiments)
     localStorage.setItem("listePiments",data)
   }
+
+  //récupérer la liste depuis le localstorage et l'attribuer a une propriété
   getFromLocalStorage(){
     const data = localStorage.getItem("listePiments")
     if(data){
