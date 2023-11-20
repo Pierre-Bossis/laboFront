@@ -1,0 +1,30 @@
+<h3>Liste des piments</h3>
+
+<div class="text-center mt-3">
+  <button (click)="filterAsc()" class="filter btn btn-outline-primary">Trier ASC &uarr;</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <button (click)="filterDesc()" class="filter btn btn-outline-primary">Trier DESC &darr;</button>
+</div>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Numéro</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Catégorie</th>
+        <th scope="col">Bouton</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let piment of piments; let i = index">
+        <tr [ngClass]="{'table-dark': i % 2 === 0, 'table-light': i % 2 !== 0}">
+          <td>{{i+1}}</td>
+          <td>{{piment.nom}}</td>
+          <td>{{piment.categorie}}</td>
+          <td>
+            <button (click)="GoDetailsPiment(i)" [ngClass]="{'btn-secondary': i % 2 === 0, 'btn-primary': i % 2 !== 0}" class="btn">Détails</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
