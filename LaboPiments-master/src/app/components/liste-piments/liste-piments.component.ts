@@ -11,7 +11,7 @@ import { PimentsService } from 'src/app/_services/piments.service';
 export class ListePimentsComponent {
   piments:Piment[] = []
   constructor(private pimentService:PimentsService, private route:Router) {
-    this.piments = pimentService.listePiments
+    this.piments = pimentService.getFromLocalStorage()
   }
 
   GoDetailsPiment(index:number){

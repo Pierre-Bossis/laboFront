@@ -3,12 +3,13 @@ nav{
     margin-bottom: 3%;
 }
 
-footer{
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-}
-
 h3{
     text-align: center;
+}
+
+footer{
+    width: 100%;
+    position: relative;
+    bottom: 0px;
+    margin-bottom: 10%;
 }

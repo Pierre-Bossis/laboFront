@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ListePimentsComponent } from './components/liste-piments/liste-piments.component';
 import { DetailsPimentComponent } from './components/liste-piments/details-piment/details-piment.component';
+import { AddPimentListeComponent } from './components/admin/add-piment-liste/add-piment-liste.component';
+import { BoutiqueComponent } from './components/boutique/boutique.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DetailsPimentComponent } from './components/liste-piments/details-pimen
     FooterComponent,
     LoginComponent,
     ListePimentsComponent,
-    DetailsPimentComponent
+    DetailsPimentComponent,
+    AddPimentListeComponent,
+    BoutiqueComponent
   ],
   imports: [
     BrowserModule,

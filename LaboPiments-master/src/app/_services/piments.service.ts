@@ -27,6 +27,7 @@ export class PimentsService {
 
   //ajouter un pimennt a la liste et la push sur le localstorage
   addToListePiments(piment:Piment){
+    piment.id = this.listePiments.length+1
     this.listePiments.push(piment)
     this.pushToLocalStorage()
   }

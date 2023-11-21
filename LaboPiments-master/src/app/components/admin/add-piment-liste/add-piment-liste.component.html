@@ -1,0 +1,43 @@
+<h3 class="mb-5">Ajouter un piment à la liste</h3>
+
+<div class="text-center mb-5">
+    <h4>Bonjour, Admin !</h4>
+    <p>Veuillez ajouter un piment à la liste des piments</p>
+</div>
+
+<form class="bs-component" autocomplete="off">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="form-group">
+                <div class="form-floating mb-5">
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" [(ngModel)]="piment.nom"/>
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="scoville" name="scoville" placeholder="Scoville" [(ngModel)]="piment.scoville"/>
+                    <label for="scoville">Scoville</label>
+                </div>
+                <div class="form-group mb-5">
+                    <label for="exampleSelect1" class="form-label mt-4">Catégorie</label>
+                    <select class="form-select" [(ngModel)]="piment.categorie" name="categorie" id="exampleSelect1">
+                      <option>light</option>
+                      <option>medium</option>
+                      <option>hot</option>
+                      <option>extreme</option>
+                      <option>elemental</option>
+                    </select>
+                  </div>
+                <div class="form-floating mb-3">
+                    <input type="textarea" class="form-control" id="description" name="description"
+                        placeholder="Description" [(ngModel)]="piment.description"/>
+                    <label for="description">Description</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-center">
+            <button (click)="addPimentForm()" class="source-button btn btn-outline-success btn-xs mt-5" type="button" tabindex="0">
+                Create
+            </button>
+        </div>
+    </div>
+</form>

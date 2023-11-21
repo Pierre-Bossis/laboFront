@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.clear()
+    localStorage.removeItem("role")
     this.connectAs = ""
   }
 }

@@ -25,7 +25,7 @@
         </li>
         <ng-container *ngIf="connectAs == 'client'">
         <li class="nav-item">
-          <a class="nav-link" href="#">Boutique</a>
+          <a class="nav-link" routerLink="boutique">Boutique</a>
         </li>
         </ng-container>
         <ng-container *ngIf="connectAs == 'admin'">
@@ -35,7 +35,7 @@
           </ng-container>
           <ng-container *ngIf="connectAs == 'admin'">
             <li class="nav-item">
-              <a class="nav-link" href="#">Ajout piment(Liste)</a>
+              <a class="nav-link" routerLink="add-piment">Ajout piment(Liste)</a>
             </li>
             </ng-container>
         <li class="nav-item dropdown">
