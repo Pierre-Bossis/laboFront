@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Piment } from 'src/app/_models/piment';
 import { BoutiqueService } from 'src/app/_services/boutique.service';
 import { PimentsService } from 'src/app/_services/piments.service';
@@ -14,7 +15,7 @@ pimentsSorted:Piment[] = []
 search:string = "tout"
 panierItem:Piment[] = []
 
-constructor(private pimentService:PimentsService,private boutiqueService:BoutiqueService){}
+constructor(private pimentService:PimentsService,private boutiqueService:BoutiqueService, private route:Router){}
   ngOnInit(): void {
     this.piments = this.pimentService.getFromLocalStorage()
     this.pimentsSorted = this.piments
@@ -27,6 +28,10 @@ constructor(private pimentService:PimentsService,private boutiqueService:Boutiqu
       this.pimentsSorted = this.piments.filter(x=>x.categorie == this.search)
     else
       this.pimentsSorted = this.piments
+  }
+
+  goToArticleDetails(index:number){
+    this.route.navigate(["boutique/article",index])    
   }
 
   add(piment:Piment){

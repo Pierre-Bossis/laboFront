@@ -48,8 +48,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let piment of pimentsSorted">
-                <td>{{piment.nom}}</td>
+                <tr *ngFor="let piment of pimentsSorted;let i = index">
+                <td (click)="goToArticleDetails(i)" class="text-info link">{{piment.nom}}</td>
                 <td>{{piment.categorie}}</td>
                 <td><button (click)="add(piment)" class="btn btn-outline-info">+</button></td>
             </tr>

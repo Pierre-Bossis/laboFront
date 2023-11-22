@@ -14,7 +14,7 @@ export class ListePimentsComponent {
     this.piments = pimentService.getFromLocalStorage()
   }
 
-  GoDetailsPiment(index:number){
+  GoDetailsPiment(index:number){    
     this.route.navigate(['detailsPiment', index]);
   }
 

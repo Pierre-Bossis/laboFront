@@ -6,6 +6,7 @@ import { ListePimentsComponent } from './components/liste-piments/liste-piments.
 import { DetailsPimentComponent } from './components/liste-piments/details-piment/details-piment.component';
 import { AddPimentListeComponent } from './components/admin/add-piment-liste/add-piment-liste.component';
 import { BoutiqueComponent } from './components/boutique/boutique.component';
+import { ArticleDetailsComponent } from './components/boutique/article-details/article-details.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:"listePiments",component:ListePimentsComponent},
   {path:"detailsPiment/:id",component:DetailsPimentComponent},
   {path:"add-piment",component:AddPimentListeComponent},
-  {path:"boutique",component:BoutiqueComponent}
+  {path:"boutique",component:BoutiqueComponent},
+  {path:"boutique/article/:id",component:ArticleDetailsComponent}
 ];
 
 @NgModule({
