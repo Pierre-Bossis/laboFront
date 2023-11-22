@@ -14,6 +14,7 @@ import { DetailsPimentComponent } from './components/liste-piments/details-pimen
 import { AddPimentListeComponent } from './components/admin/add-piment-liste/add-piment-liste.component';
 import { BoutiqueComponent } from './components/boutique/boutique.component';
 import { ArticleDetailsComponent } from './components/boutique/article-details/article-details.component';
+import { AddPimentBoutiqueComponent } from './components/admin/add-piment-boutique/add-piment-boutique.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ArticleDetailsComponent } from './components/boutique/article-details/a
     DetailsPimentComponent,
     AddPimentListeComponent,
     BoutiqueComponent,
-    ArticleDetailsComponent
+    ArticleDetailsComponent,
+    AddPimentBoutiqueComponent
   ],
   imports: [
     BrowserModule,

@@ -17,54 +17,57 @@
 </div>
 
 <div class="row mt-4">
-    <div class="col-3">
+    <div class="col-4">
         <h5>Sauces</h5>
         <table>
             <thead>
                 <tr>
-                    <th>a</th>
-                    <th>b</th>
-                    <th>c</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>x</td>
-                    <td>x</td>
-                    <td>x</td>
-                </tr>
+                <tr *ngFor="let sauce of saucesSorted;let i = index">
+                <td class="text-info link">{{sauce.nom}}</td>
+                <td>{{sauce.prix}}€</td>
+                <td><button (click)="add(sauce)" class="btn btn-outline-info">+</button></td>
+            </tr>
             </tbody>
         </table>
     </div>
 
-    <div class="col-4">
+    <div class="col-5">
         <h5>Piments pur</h5>
         <table>
             <thead>
                 <tr>
                     <th>Nom</th>
-                    <th>Categorie</th>
+                    <th>prix</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let piment of pimentsSorted;let i = index">
                 <td (click)="goToArticleDetails(i)" class="text-info link">{{piment.nom}}</td>
-                <td>{{piment.categorie}}</td>
+                <td>{{piment.prix}}€</td>
                 <td><button (click)="add(piment)" class="btn btn-outline-info">+</button></td>
             </tr>
             </tbody>
         </table>
     </div>
-    <div class="col-3 offset-2">
+    <div class="col-3">
         <div class="card border-info mb-3" style="max-width: 20rem;">
-            <div class="card-header text-center"><b>Panier</b></div>
+            <div class="card-header text-center text-info">
+                <p><b>Panier</b></p>
+                <p><b>total: {{totalPanier}}€ - articles : {{panierItem ? panierItem.length : 0}}</b></p>
+            </div>
             <div class="card-body">
                 <table>
                     <tbody>
                         <tr *ngFor="let piment of panierItem;let i = index">
                         <td>{{piment.nom}}</td>
-                        <td><button (click)="delete(i)" class="btn btn-outline-info">-</button></td>
+                        <td><button (click)="delete(i,piment.prix)" class="btn btn-outline-info">-</button></td>
                     </tr>
                     </tbody>
                 </table>

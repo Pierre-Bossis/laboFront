@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Piment } from 'src/app/_models/piment';
 import { PimentsService } from 'src/app/_services/piments.service';
 
@@ -9,7 +9,7 @@ import { PimentsService } from 'src/app/_services/piments.service';
   styleUrls: ['./article-details.component.css']
 })
 export class ArticleDetailsComponent implements OnInit{
-constructor(private pimentService:PimentsService ,private route:ActivatedRoute){}
+constructor(private pimentService:PimentsService ,private route:ActivatedRoute,private route2:Router){}
 parsedId:any
 piment!:Piment
 
@@ -22,6 +22,10 @@ ngOnInit(): void {
         this.piment = this.pimentService.listePiments[this.parsedId]
     }
   });
+}
+
+boutique(){
+  this.route2.navigate(["boutique"])
 }
 
 

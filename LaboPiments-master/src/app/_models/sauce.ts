@@ -1,8 +1,6 @@
-export interface Piment {
+export interface Sauce {
     id:number
     nom:string
-    scoville:string
     categorie:string
-    description:string
     prix?:number
 }

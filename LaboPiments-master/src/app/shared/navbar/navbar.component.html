@@ -30,15 +30,15 @@
         </ng-container>
         <ng-container *ngIf="connectAs == 'admin'">
           <li class="nav-item">
-            <a class="nav-link" href="#">Ajout piment(Boutique)</a>
+            <a class="nav-link" routerLink="admin/add-piment-boutique">Ajouter article(Boutique)</a>
           </li>
           </ng-container>
           <ng-container *ngIf="connectAs == 'admin'">
             <li class="nav-item">
-              <a class="nav-link" routerLink="add-piment">Ajout piment(Liste)</a>
+              <a class="nav-link" routerLink="admin/add-piment-liste">Ajout piment(Liste)</a>
             </li>
             </ng-container>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             data-bs-toggle="dropdown"
@@ -55,7 +55,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Separated link</a>
           </div>
-        </li>
+        </li> -->
       </ul>
       <div class="d-flex justify-content-end">
         <ul class="navbar-nav me-auto">
