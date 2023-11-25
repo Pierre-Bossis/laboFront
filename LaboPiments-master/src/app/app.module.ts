@@ -15,6 +15,7 @@ import { AddPimentListeComponent } from './components/admin/add-piment-liste/add
 import { BoutiqueComponent } from './components/boutique/boutique.component';
 import { ArticleDetailsComponent } from './components/boutique/article-details/article-details.component';
 import { AddPimentBoutiqueComponent } from './components/admin/add-piment-boutique/add-piment-boutique.component';
+import { InputValidationDirective } from './shared/directives/input-validation.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddPimentBoutiqueComponent } from './components/admin/add-piment-boutiq
     AddPimentListeComponent,
     BoutiqueComponent,
     ArticleDetailsComponent,
-    AddPimentBoutiqueComponent
+    AddPimentBoutiqueComponent,
+    InputValidationDirective
   ],
   imports: [
     BrowserModule,

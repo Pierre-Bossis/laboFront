@@ -5,25 +5,31 @@
     <p>Veuillez ajouter un piment à la liste des piments</p>
 </div>
 
-<form class="bs-component" autocomplete="off">
+<form class="bs-component" autocomplete="off" #fp="ngForm">
     <div class="row">
         <div class="col-6 offset-3">
             <div class="form-group">
                 <div class="form-floating mb-5">
-                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" [(ngModel)]="piment.nom"/>
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" [(ngModel)]="piment.nom" inputValidation required/>
                     <label for="nom">Nom</label>
+                    <div class="valid-feedback">Success! You've done it.</div>
+                    <div class="invalid-feedback">Le champ doit être rempli.</div>
                 </div>
                 <div class="form-floating mb-5">
-                    <input type="text" class="form-control" id="prix" name="prix" placeholder="Prix" [(ngModel)]="piment.prix"/>
+                    <input type="number" step="any" class="form-control" id="prix" name="prix" placeholder="Prix" [(ngModel)]="piment.prix" [min]="1.00" inputValidation pattern="^\d*\.?\d*$" required/>
                     <label for="prix">Prix</label>
+                    <div class="valid-feedback">Success! You've done it.</div>
+                    <div class="invalid-feedback">Le champ doit être rempli  (minimum 1).</div>
                 </div>
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="scoville" name="scoville" placeholder="Scoville" [(ngModel)]="piment.scoville"/>
+                    <input type="text" class="form-control" id="scoville" name="scoville" placeholder="Scoville" [(ngModel)]="piment.scoville" inputValidation required/>
                     <label for="scoville">Scoville</label>
+                    <div class="valid-feedback">Success! You've done it.</div>
+                    <div class="invalid-feedback">Le champ doit être rempli.</div>
                 </div>
                 <div class="form-group mb-5">
                     <label for="exampleSelect1" class="form-label mt-4">Catégorie</label>
-                    <select class="form-select" [(ngModel)]="piment.categorie" name="categorie" id="exampleSelect1">
+                    <select class="form-select" [(ngModel)]="piment.categorie" name="categorie" id="exampleSelect1" required>
                       <option>light</option>
                       <option>medium</option>
                       <option>hot</option>
@@ -33,13 +39,15 @@
                   </div>
                 <div class="form-floating mb-3">
                     <input type="textarea" class="form-control" id="description" name="description"
-                        placeholder="Description" [(ngModel)]="piment.description"/>
+                        placeholder="Description" [(ngModel)]="piment.description" inputValidation required/>
                     <label for="description">Description</label>
+                    <div class="valid-feedback">Success! You've done it.</div>
+                    <div class="invalid-feedback">Le champ doit être rempli.</div>
                 </div>
             </div>
         </div>
         <div class="col-12 text-center">
-            <button (click)="addPimentForm()" class="source-button btn btn-outline-success btn-xs mt-5" type="button" tabindex="0">
+            <button (click)="addPimentForm()" class="source-button btn btn-outline-success btn-xs mt-5" type="button" tabindex="0" [disabled]="!fp.valid">
                 Create
             </button>
         </div>

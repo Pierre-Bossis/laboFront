@@ -5,21 +5,26 @@
     <p>Veuillez ajouter une sauce à la boutique des piments</p>
 </div>
 
-<form class="bs-component" autocomplete="off">
+<form class="bs-component" autocomplete="off" #fa="ngForm">
     <div class="row">
         <div class="col-6 offset-3">
             <div class="form-group">
                 <div class="form-floating mb-5">
-                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" [(ngModel)]="sauce.nom"/>
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" [(ngModel)]="sauce.nom"
+                    inputValidation  required/>
                     <label for="nom">Nom</label>
+                    <div class="valid-feedback">Success! You've done it.</div>
+                    <div class="invalid-feedback">Le champ doit être rempli.</div>
                 </div>
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="prix" name="prix" placeholder="Prix" [(ngModel)]="sauce.prix"/>
+                    <input type="number" step="any" class="form-control" id="prix" name="prix" placeholder="Prix" [(ngModel)]="sauce.prix" [min]="1" pattern="^\d*\.?\d*$" inputValidation required/>
                     <label for="prix">Prix</label>
+                    <div class="valid-feedback">Success! You've done it.</div>
+                    <div class="invalid-feedback">Le champ doit être rempli  (minimum 1).</div>
                 </div>
                 <div class="form-group mb-5">
                     <label for="exampleSelect1" class="form-label mt-4">Catégorie</label>
-                    <select class="form-select" [(ngModel)]="sauce.categorie" name="categorie" id="exampleSelect1">
+                    <select class="form-select" [(ngModel)]="sauce.categorie" name="categorie" id="exampleSelect1" required>
                       <option>light</option>
                       <option>medium</option>
                       <option>hot</option>
@@ -30,7 +35,7 @@
             </div>
         </div>
         <div class="col-12 text-center">
-            <button (click)="addSauceForm()" class="source-button btn btn-outline-success btn-xs mt-5" type="button" tabindex="0">
+            <button (click)="addSauceForm()" class="source-button btn btn-outline-success btn-xs mt-5" type="button" tabindex="0" [disabled]="!fa.valid">
                 Create
             </button>
         </div>
