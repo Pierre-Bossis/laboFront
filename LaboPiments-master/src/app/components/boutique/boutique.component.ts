@@ -31,7 +31,6 @@ constructor(private pimentService:PimentsService,private boutiqueService:Boutiqu
       this.sauces = data
       this.saucesSorted = this.sauces
     })
-
     
 
     this.panierItem = this.boutiqueService.getPanierFromLocalStorage()

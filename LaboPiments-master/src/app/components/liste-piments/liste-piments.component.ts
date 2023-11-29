@@ -12,7 +12,7 @@ export class ListePimentsComponent {
   piments:Piment[] = []
   constructor(private pimentService:PimentsService, private route:Router) {
     pimentService.getPiments().subscribe((data) => {
-      this.piments = data
+      this.piments = data 
     })
   }
 

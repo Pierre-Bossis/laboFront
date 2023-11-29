@@ -1,12 +1,12 @@
 <h3>Liste des piments</h3>
+<div *ngIf="piments.length > 0">
+  <div class="text-center mt-3">
+    <button (click)="filterAsc()" class="filter btn btn-outline-primary">Trier ASC &uarr;</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button (click)="filterDesc()" class="filter btn btn-outline-primary">Trier DESC &darr;</button>
+  </div>
 
-<div class="text-center mt-3">
-  <button (click)="filterAsc()" class="filter btn btn-outline-primary">Trier ASC &uarr;</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <button (click)="filterDesc()" class="filter btn btn-outline-primary">Trier DESC &darr;</button>
-</div>
-
-<table class="table table-hover">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Numéro</th>
@@ -22,9 +22,16 @@
           <td>{{piment.nom}}</td>
           <td>{{piment.categorie}}</td>
           <td>
-            <button (click)="GoDetailsPiment(piment.id)" [ngClass]="{'btn-secondary': i % 2 === 0, 'btn-primary': i % 2 !== 0}" class="btn">Détails</button>
+            <button (click)="GoDetailsPiment(piment.id)"
+              [ngClass]="{'btn-secondary': i % 2 === 0, 'btn-primary': i % 2 !== 0}" class="btn">Détails</button>
           </td>
         </tr>
       </ng-container>
     </tbody>
   </table>
+</div>
+<div *ngIf="piments.length == 0">
+  <div class="text-center">
+    <p style="color:red;">Erreur lors du chargement de la page..</p>
+  </div>
+</div>
