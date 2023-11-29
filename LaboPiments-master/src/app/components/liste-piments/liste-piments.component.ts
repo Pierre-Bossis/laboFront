@@ -14,11 +14,13 @@ export class ListePimentsComponent {
     this.piments = pimentService.getFromLocalStorage()
   }
 
+  
+
   GoDetailsPiment(index:number){    
     this.route.navigate(['detailsPiment', index]);
   }
 
-  filterAsc(){
+  filterAsc(){    
     this.piments.sort((a, b) => {
       const nomA = a.nom
       const nomB = b.nom

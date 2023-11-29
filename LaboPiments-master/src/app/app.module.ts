@@ -16,6 +16,8 @@ import { BoutiqueComponent } from './components/boutique/boutique.component';
 import { ArticleDetailsComponent } from './components/boutique/article-details/article-details.component';
 import { AddPimentBoutiqueComponent } from './components/admin/add-piment-boutique/add-piment-boutique.component';
 import { InputValidationDirective } from './shared/directives/input-validation.directive';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,12 @@ import { InputValidationDirective } from './shared/directives/input-validation.d
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-bottom-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
