@@ -18,9 +18,10 @@ export class ArticleDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id != null) {
-        this.parsedId = id
-        if (this.pimentService.listePiments[this.parsedId] != null)
-          this.piment = this.pimentService.listePiments[this.parsedId]
+        this.parsedId = +id
+        this.pimentService.getPimentOne(this.parsedId).subscribe((data) => {
+          this.piment = data
+        })
       }
     });
   }

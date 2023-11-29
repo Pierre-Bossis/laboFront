@@ -19,7 +19,11 @@ constructor(private pimentService:PimentsService,private route:ActivatedRoute, p
       if(id != null){
         this.parsedId = id
         if(this.pimentService.listePiments[this.parsedId] != null)
-          this.piment = this.pimentService.listePiments[this.parsedId]
+        console.log(this.parsedId);
+        
+          this.pimentService.getPimentOne(this.parsedId).subscribe((data) => {
+            this.piment = data
+          })
       }
     });
     if(localStorage.getItem("role") != null)

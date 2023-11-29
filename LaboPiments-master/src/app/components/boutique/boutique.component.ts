@@ -22,12 +22,17 @@ totalPanier:number = 0
 
 constructor(private pimentService:PimentsService,private boutiqueService:BoutiqueService, private route:Router, private toastr:ToastrService){}
   ngOnInit(): void {
-    //tout initialiser du localStorage
-    this.piments = this.pimentService.getFromLocalStorage()
-    this.pimentsSorted = this.piments
+    this.pimentService.getPiments().subscribe((data) => {
+      this.piments = data
+      this.pimentsSorted = this.piments
+    })
 
-    this.sauces = this.pimentService.listeSauces
-    this.saucesSorted = this.sauces
+    this.pimentService.getSauces().subscribe((data) => {
+      this.sauces = data
+      this.saucesSorted = this.sauces
+    })
+
+    
 
     this.panierItem = this.boutiqueService.getPanierFromLocalStorage()
     this.totalPanier = this.boutiqueService.totalPanier

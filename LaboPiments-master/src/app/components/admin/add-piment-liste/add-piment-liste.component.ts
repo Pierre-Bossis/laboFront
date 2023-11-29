@@ -16,8 +16,7 @@ export class AddPimentListeComponent {
   }
 
   addPimentForm(){    
-    this.pimentService.addToListePiments(this.piment)
-    this.route.navigate(['listePiments']);
+    this.pimentService.addPiment(this.piment).subscribe(() => this.route.navigate(['listePiments']))
   }
 
 }

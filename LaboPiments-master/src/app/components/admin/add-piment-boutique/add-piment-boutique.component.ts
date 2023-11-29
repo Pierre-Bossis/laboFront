@@ -16,7 +16,6 @@ export class AddPimentBoutiqueComponent {
   }
 
   addSauceForm(){    
-     this.pimentService.addToListeSauces(this.sauce)
-     this.route.navigate(['home']);
+    this.pimentService.addSauce(this.sauce).subscribe(() => this.route.navigate(['home']))
   }
 }

@@ -22,7 +22,7 @@
           <td>{{piment.nom}}</td>
           <td>{{piment.categorie}}</td>
           <td>
-            <button (click)="GoDetailsPiment(i)" [ngClass]="{'btn-secondary': i % 2 === 0, 'btn-primary': i % 2 !== 0}" class="btn">Détails</button>
+            <button (click)="GoDetailsPiment(piment.id)" [ngClass]="{'btn-secondary': i % 2 === 0, 'btn-primary': i % 2 !== 0}" class="btn">Détails</button>
           </td>
         </tr>
       </ng-container>

@@ -11,13 +11,15 @@ import { PimentsService } from 'src/app/_services/piments.service';
 export class ListePimentsComponent {
   piments:Piment[] = []
   constructor(private pimentService:PimentsService, private route:Router) {
-    this.piments = pimentService.getFromLocalStorage()
+    pimentService.getPiments().subscribe((data) => {
+      this.piments = data
+    })
   }
 
   
 
-  GoDetailsPiment(index:number){    
-    this.route.navigate(['detailsPiment', index]);
+  GoDetailsPiment(id:number){    
+    this.route.navigate(['detailsPiment', id]);
   }
 
   filterAsc(){    
